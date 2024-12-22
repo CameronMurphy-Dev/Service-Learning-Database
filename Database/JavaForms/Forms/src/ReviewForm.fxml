@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="1179.0" style="-fx-background-color: #eeeee4;" stylesheets="@Styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="742.0" prefWidth="451.0" style="-fx-background-color: #76b5c5;" styleClass="sidePanel" stylesheets="@Styles/styles.css">
+      <VBox id="Vbox_Leftside" prefHeight="742.0" prefWidth="451.0" style="-fx-background-color: #76b5c5;" styleClass="sidePanel" stylesheets="@Styles/styles.css">
          <children>
             <Label alignment="CENTER" prefHeight="21.0" prefWidth="450.0" text="We want to hear from you!" textAlignment="CENTER">
                <font>
@@ -40,32 +43,67 @@
             </TextFlow>
          </children>
       </VBox>
-      <VBox prefHeight="668.0" prefWidth="731.0">
+      <VBox id="VBox_Rightside" prefHeight="668.0" prefWidth="731.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Meal">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ChoiceBox prefWidth="150.0">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </ChoiceBox>
+                  <HBox id="HBox_Meal" alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                     <children>
+                        <Label id="Lbl_Meal" text="Meal">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox id="CBox_Meal" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="729.0" text="How Was it?" textAlignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <ToggleButtonGroup id="TBG_Review" prefHeight="115.0" prefWidth="437.0" selectionType="SINGLE">
+                            <toggles>
+                                <ToggleButton id="TB_Negative" contentDisplay="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/images/thumbsDown.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                </ToggleButton>
+                                <ToggleButton id="TB_Positive" selected="true">
+                                 <graphic>
+                                    <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/images/thumbsUp.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                </ToggleButton>
+                            </toggles>
+                        </ToggleButtonGroup>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="731.0" text="How Was it?" textAlignment="CENTER">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <TextArea prefHeight="216.0" prefWidth="670.0">
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
-            </TextArea>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label contentDisplay="CENTER" text="Want to tell us more?" textAlignment="CENTER" />
+                  <TextArea id="TA_Review" prefHeight="239.0" prefWidth="600.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
          </children>
       </VBox>
    </children>
