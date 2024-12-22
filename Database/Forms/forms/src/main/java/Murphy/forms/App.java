@@ -33,13 +33,15 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        
         Connection conn = DatabaseConnection.getConnection();
         if (conn != null) {
             System.out.println("Connection successful!");
         } else {
             System.out.println("Connection failed!");
         }
+        DatabaseTest.fetchTableData();
+        launch();
     }
 
 }

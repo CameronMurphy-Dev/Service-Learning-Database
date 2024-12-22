@@ -6,11 +6,11 @@ import java.sql.SQLException;
 public class DatabaseConnection {
 	private static Connection connection;
 	
+	@SuppressWarnings("exports")
 	public static Connection getConnection() {
         if (connection == null) {
             try {
-                // Specify the path to your Access database file (.accdb or .mdb)
-                String databaseUrl = "jdbc:ucanaccess:C:\\Users\\camer\\Documents\\Service-Learning-Database\\Database\\MurphyFinal.accdb";
+                String databaseUrl = "jdbc:ucanaccess://C:/Users/camer/Documents/Service-Learning-Database/Database/MurphyFinal.accdb";
                 connection = DriverManager.getConnection(databaseUrl);
                 System.out.println("Database connection successful.");
             } catch (SQLException e) {
